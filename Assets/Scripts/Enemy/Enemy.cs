@@ -1,18 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(Shooter))]
+public class Enemy : MonoBehaviour, IInteractable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private float _maxReload;
+    [SerializeField] private float _minReload;
+
+    private Shooter _shooter;
+    private float _reloadTime;
+    private float _lastTimeAttack;
+
+    public event Action<Enemy> OnDie;
+
+    private void Start()
     {
-        
+        _shooter = GetComponent<Shooter>();
+        _reloadTime = UnityEngine.Random.Range(_maxReload, _maxReload);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        _lastTimeAttack += Time.deltaTime;
+
+        if (_lastTimeAttack >= _reloadTime)
+        {
+            _shooter.Shoot();
+            _lastTimeAttack = 0;
+        }
+    }
+
+    public void Die()
+    {
+        OnDie?.Invoke(this);
     }
 }

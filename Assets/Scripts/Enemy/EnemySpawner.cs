@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
     private void Spawn()
     {
         float spawnPositionY = Random.Range(_upperBound, _lowerBound);
-        Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, 0);
+        Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, transform.localPosition.z);
 
         Enemy enemy = _pool.GetObject();
 

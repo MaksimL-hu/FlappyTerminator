@@ -31,7 +31,10 @@ public class Bird : MonoBehaviour
 
     private void ProcessCollision(IInteractable interactable)
     {
-
+        if(interactable is Enemy || interactable is EnemyBullet)
+        {
+            Debug.Log("Game over");
+        }
     }
 
     public void Reset()

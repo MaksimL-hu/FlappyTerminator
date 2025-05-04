@@ -1,5 +1,5 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemyPool : MonoBehaviour
 {
@@ -8,7 +8,7 @@ public class EnemyPool : MonoBehaviour
 
     private Queue<Enemy> _pool;
 
-    private void Start()
+    private void Awake()
     {
         _pool = new Queue<Enemy>();
 
@@ -25,8 +25,15 @@ public class EnemyPool : MonoBehaviour
         Enemy enemy = Instantiate(_enemies[index]);
         enemy.transform.parent = _container;
         enemy.gameObject.SetActive(false);
+        enemy.OnDie += PutObject;
 
         return enemy;
+    }
+
+    private void DestroyEnemy(Enemy enemy)
+    {
+        enemy.OnDie -= PutObject;
+        Destroy(enemy);
     }
 
     public Enemy GetObject()

@@ -20,7 +20,7 @@ public class BirdController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && _lastTimeShoot >= _reload)
         {
-            _shooter.Shoot(transform.rotation);
+            _shooter.Shoot();
             _lastTimeShoot = 0;
         }
     }
