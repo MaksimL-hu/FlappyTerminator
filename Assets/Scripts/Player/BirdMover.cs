@@ -23,6 +23,8 @@ public class BirdMover : MonoBehaviour
         _minRotation = Quaternion.Euler(0, 0, _minRotationZ);
 
         Reset();
+
+        _rigidbody2D.velocity = new Vector2(_speed, 0);
     }
 
     private void Update()

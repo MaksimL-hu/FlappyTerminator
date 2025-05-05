@@ -51,4 +51,15 @@ public class EnemyPool : MonoBehaviour
         _pool.Enqueue(enemy);
         enemy.gameObject.SetActive(false);
     }
+
+    public void Reset()
+    {
+        foreach (Enemy enemy in _container.GetComponentsInChildren<Enemy>())
+        {
+            if (enemy.gameObject.activeSelf)
+            {
+                PutObject(enemy);
+            }
+        }
+    }
 }

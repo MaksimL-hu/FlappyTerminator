@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -5,9 +6,10 @@ public class BulletPool : MonoBehaviour
 {
     [SerializeField] private Bullet _bullet;
     [SerializeField] private Transform _container;
-    [SerializeField] private ScoreCounter _playerCounter;
 
     private ObjectPool<Bullet> _pool;
+
+    public event Action BulletOnHit;
 
     private void Awake()
     {
@@ -40,7 +42,7 @@ public class BulletPool : MonoBehaviour
 
     private void BulletHit(Bullet bullet)
     {
-        _playerCounter.Add();
+        BulletOnHit?.Invoke();
         ReleaseBullet(bullet);
     }
 
@@ -52,5 +54,16 @@ public class BulletPool : MonoBehaviour
     public void ReleaseBullet(Bullet bullet)
     {
         _pool.Release(bullet);
+    }
+
+    public void Reset()
+    {
+        foreach (Bullet bullet in _container.GetComponentsInChildren<Bullet>())
+        {
+            if (bullet.gameObject.activeSelf)
+            {
+                ReleaseBullet(bullet);
+            }
+        }
     }
 }

@@ -31,9 +31,9 @@ public class Bird : MonoBehaviour
 
     private void ProcessCollision(IInteractable interactable)
     {
-        if(interactable is Enemy || interactable is EnemyBullet)
+        if(interactable is Enemy || interactable is EnemyBullet || interactable is GameOverZone)
         {
-            Debug.Log("Game over");
+            GameOver?.Invoke();
         }
     }
 
