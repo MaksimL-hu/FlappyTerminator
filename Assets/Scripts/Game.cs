@@ -22,14 +22,14 @@ public class Game : MonoBehaviour
     {
         _startScreen.PlayButtonClicked += OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked += OnRestartButtonClick;
-        _bird.GameOver += OnGameOver;
+        _bird.GameOvered += OnGameOver;
     }
 
     private void OnDisable()
     {
         _startScreen.PlayButtonClicked -= OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked -= OnRestartButtonClick;
-        _bird.GameOver -= OnGameOver;
+        _bird.GameOvered -= OnGameOver;
     }
 
     private void OnGameOver()

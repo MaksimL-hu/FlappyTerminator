@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour, IInteractable
     private float _reloadTime;
     private float _lastTimeAttack;
 
-    public event Action<Enemy> OnDie;
+    public event Action<Enemy> Died;
 
     private void Start()
     {
@@ -32,6 +32,6 @@ public class Enemy : MonoBehaviour, IInteractable
 
     public void Die()
     {
-        OnDie?.Invoke(this);
+        Died?.Invoke(this);
     }
 }

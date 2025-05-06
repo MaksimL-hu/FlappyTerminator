@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
-    public event Action<Bullet> OnHit;
+    public event Action<Bullet> HadHit;
 
     private void Update()
     {
@@ -14,6 +14,6 @@ public class Bullet : MonoBehaviour
 
     protected void Hit()
     {
-        OnHit?.Invoke(this);
+        HadHit?.Invoke(this);
     }
 }

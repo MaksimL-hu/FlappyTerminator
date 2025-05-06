@@ -20,22 +20,6 @@ public class EnemyPool : MonoBehaviour
         _pool = QueueExtensions.Shuffle(_pool);
     }
 
-    private Enemy InstantiateEnemy(int index)
-    {
-        Enemy enemy = Instantiate(_enemies[index]);
-        enemy.transform.parent = _container;
-        enemy.gameObject.SetActive(false);
-        enemy.OnDie += PutObject;
-
-        return enemy;
-    }
-
-    private void DestroyEnemy(Enemy enemy)
-    {
-        enemy.OnDie -= PutObject;
-        Destroy(enemy);
-    }
-
     public Enemy GetObject()
     {
         if (_pool.Count == 0)
@@ -61,5 +45,15 @@ public class EnemyPool : MonoBehaviour
                 PutObject(enemy);
             }
         }
+    }
+
+    private Enemy InstantiateEnemy(int index)
+    {
+        Enemy enemy = Instantiate(_enemies[index]);
+        enemy.transform.parent = _container;
+        enemy.gameObject.SetActive(false);
+        enemy.Died += PutObject;
+
+        return enemy;
     }
 }

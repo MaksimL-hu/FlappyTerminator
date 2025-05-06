@@ -11,12 +11,12 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _bulletPool.BulletOnHit += AddScore;
+        _bulletPool.BulletHadHit += AddScore;
     }
 
     private void OnDisable()
     {
-        _bulletPool.BulletOnHit -= AddScore;
+        _bulletPool.BulletHadHit -= AddScore;
     }
 
     public void AddScore()

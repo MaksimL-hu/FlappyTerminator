@@ -10,7 +10,7 @@ public class Bird : MonoBehaviour
     private ScoreCounter _scoreCounter;
     private BirdCollisionHandler _handler;
 
-    public event Action GameOver;
+    public event Action GameOvered;
 
     private void Awake()
     {
@@ -29,17 +29,17 @@ public class Bird : MonoBehaviour
         _handler.CollisionDetected -= ProcessCollision;
     }
 
-    private void ProcessCollision(IInteractable interactable)
-    {
-        if(interactable is Enemy || interactable is EnemyBullet || interactable is GameOverZone)
-        {
-            GameOver?.Invoke();
-        }
-    }
-
     public void Reset()
     {
         _scoreCounter.Reset();
         _birdMover.Reset();
+    }
+
+    private void ProcessCollision(IInteractable interactable)
+    {
+        if(interactable is Enemy || interactable is EnemyBullet || interactable is GameOverZone)
+        {
+            GameOvered?.Invoke();
+        }
     }
 }

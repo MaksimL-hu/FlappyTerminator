@@ -14,7 +14,7 @@ public class ParallaxBackground : MonoBehaviour
     private float _boundSizeX;
     private float _sizeX;
 
-    void Start()
+    private void Start()
     {
         if(_layerSpeed.Length != _layerObjects.Length)
         {
@@ -32,7 +32,7 @@ public class ParallaxBackground : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (_cameraMove)
         {
