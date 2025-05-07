@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7863404690720504613}
   - component: {fileID: 2700234893398663629}
   - component: {fileID: 5943143911343665248}
+  - component: {fileID: 7804165668287121613}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -254,5 +255,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 043b9aba5ef0d1e409b61356b71a6557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPool: {fileID: 0}
+--- !u!114 &7804165668287121613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488337487376544285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c21adf3c4af740478954204519e0fa5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

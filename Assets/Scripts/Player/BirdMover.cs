@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerInput))]
 public class BirdMover : MonoBehaviour
 {
     [SerializeField] private float _tapForce;
@@ -9,33 +10,47 @@ public class BirdMover : MonoBehaviour
     [SerializeField] private float _maxRotationZ;
     [SerializeField] private float _minRotationZ;
 
-    private Vector3 _startPosition;
     private Rigidbody2D _rigidbody2D;
+    private PlayerInput _playerInput;
+    private Vector3 _startPosition;
     private Quaternion _maxRotation;
     private Quaternion _minRotation;
+
+    private void Awake()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _playerInput = GetComponent<PlayerInput>();
+    }
 
     private void Start()
     {
         _startPosition = transform.position;
-        _rigidbody2D = GetComponent<Rigidbody2D>();
 
         _maxRotation = Quaternion.Euler(0, 0, _maxRotationZ);
         _minRotation = Quaternion.Euler(0, 0, _minRotationZ);
 
         Reset();
-
-        _rigidbody2D.velocity = new Vector2(_speed, 0);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
-            transform.rotation = _maxRotation;
-        }
-
         transform.rotation = Quaternion.Lerp(transform.rotation, _minRotation, _rotationSpeed * Time.deltaTime);
+    }
+
+    private void OnEnable()
+    {
+        _playerInput.SpaceGottenDown += Move;
+    }
+
+    private void OnDisable()
+    {
+        _playerInput.SpaceGottenDown -= Move;
+    }
+
+    private void Move()
+    {
+        _rigidbody2D.velocity = new Vector2(_speed, _tapForce);
+        transform.rotation = _maxRotation;
     }
 
     public void Reset()
