@@ -4,10 +4,10 @@ public class Game : MonoBehaviour
 {
     [SerializeField] private Bird _bird;
 
-    [Header("Pools")]
-    [SerializeField] private EnemyPool _enemyPool;
-    [SerializeField] private BulletPool _playerBulletPool;
-    [SerializeField] private BulletPool _enemyBulletPool;
+    [Header("Spawners")]
+    [SerializeField] private EnemySpawner _enemySpawner;
+    [SerializeField] private BulletSpawner _playerBulletSpawner;
+    [SerializeField] private BulletSpawner _enemyBulletSpawner;
 
     [Header("Screens")]
     [SerializeField] private StartScreen _startScreen;
@@ -57,10 +57,10 @@ public class Game : MonoBehaviour
 
     private void RestartGame()
     {
-        StartGame();
         _bird.Reset();
-        _enemyPool.Reset();
-        _playerBulletPool.Reset();
-        _enemyBulletPool.Reset();
+        _enemySpawner.Reset();
+        _playerBulletSpawner.Reset();
+        _enemyBulletSpawner.Reset();
+        StartGame();
     }
 }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -8,11 +9,13 @@ public class BulletPool : MonoBehaviour
     [SerializeField] private Transform _container;
 
     private ObjectPool<Bullet> _pool;
+    private List<Bullet> _bullets;
 
     public event Action BulletHadHit;
 
     private void Awake()
     {
+        _bullets = new List<Bullet>();
         _pool = new ObjectPool<Bullet>(
             createFunc: () => InstantiateBullet(),
             actionOnRelease: (bullet) => OnActionRelease(bullet),
@@ -26,7 +29,7 @@ public class BulletPool : MonoBehaviour
 
     public void Reset()
     {
-        foreach (Bullet bullet in _container.GetComponentsInChildren<Bullet>())
+        foreach (Bullet bullet in _bullets)
         {
             if (bullet.gameObject.activeSelf)
             {
@@ -45,6 +48,8 @@ public class BulletPool : MonoBehaviour
         Bullet bullet = Instantiate(_bullet);
         bullet.transform.parent = _container;
         bullet.HadHit += BulletHit;
+        bullet.Removing += ReleaseBullet;
+        _bullets.Add(bullet);
 
         return bullet;
     }
@@ -58,6 +63,7 @@ public class BulletPool : MonoBehaviour
     private void DestroyObject(Bullet bullet)
     {
         bullet.HadHit -= BulletHit;
+        bullet.Removing -= ReleaseBullet;
         Destroy(bullet.gameObject);
     }
 

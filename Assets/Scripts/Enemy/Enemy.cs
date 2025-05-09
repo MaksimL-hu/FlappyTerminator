@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour, IInteractable
 
     private Shooter _shooter;
     private float _reloadTime;
-    private float _lastTimeAttack;
+    private float _timeAfterLastAttack;
 
     public event Action<Enemy> Died;
 
@@ -21,12 +21,12 @@ public class Enemy : MonoBehaviour, IInteractable
 
     private void Update()
     {
-        _lastTimeAttack += Time.deltaTime;
+        _timeAfterLastAttack += Time.deltaTime;
 
-        if (_lastTimeAttack >= _reloadTime)
+        if (_timeAfterLastAttack >= _reloadTime)
         {
             _shooter.Shoot();
-            _lastTimeAttack = 0;
+            _timeAfterLastAttack = 0;
         }
     }
 

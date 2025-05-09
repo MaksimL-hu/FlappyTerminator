@@ -34,4 +34,9 @@ public class EnemySpawner : MonoBehaviour
         enemy.gameObject.SetActive(true);
         enemy.transform.position = spawnPoint;
     }
+
+    public void Reset()
+    {
+        _pool.Reset();
+    }
 }

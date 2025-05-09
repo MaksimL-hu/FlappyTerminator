@@ -19,9 +19,15 @@ public abstract class Window : MonoBehaviour
         _actionButton.onClick.RemoveListener(OnButtonClick);
     }
 
+    public virtual void Open()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public virtual void Close()
+    {
+        gameObject.SetActive(false);
+    }
+
     protected abstract void OnButtonClick();
-
-    public abstract void Open();
-
-    public abstract void Close();
 }

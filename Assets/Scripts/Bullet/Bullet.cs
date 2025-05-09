@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
+    public event Action<Bullet> Removing;
     public event Action<Bullet> HadHit;
 
     private void Update()
@@ -12,8 +13,13 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
-    protected void Hit()
+    public void Hit()
     {
         HadHit?.Invoke(this);
+    }
+
+    public void Remove()
+    {
+        Removing?.Invoke(this);
     }
 }

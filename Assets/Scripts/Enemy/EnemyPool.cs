@@ -4,15 +4,17 @@ using UnityEngine;
 public class EnemyPool : MonoBehaviour
 {
     [SerializeField] private Transform _container;
-    [SerializeField] private List<Enemy> _enemies;
+    [SerializeField] private List<Enemy> _prefabEnemies;
 
     private Queue<Enemy> _pool;
+    private List<Enemy> _enemies;
 
     private void Awake()
     {
         _pool = new Queue<Enemy>();
+        _enemies = new List<Enemy>();
 
-        for (int i = 0; i < _enemies.Count; i++)
+        for (int i = 0; i < _prefabEnemies.Count; i++)
         {
             _pool.Enqueue(InstantiateEnemy(i));
         }
@@ -24,7 +26,7 @@ public class EnemyPool : MonoBehaviour
     {
         if (_pool.Count == 0)
         {
-            return InstantiateEnemy(UnityEngine.Random.Range(0, _enemies.Count));
+            return InstantiateEnemy(UnityEngine.Random.Range(0, _prefabEnemies.Count));
         }
 
         return _pool.Dequeue();
@@ -38,7 +40,7 @@ public class EnemyPool : MonoBehaviour
 
     public void Reset()
     {
-        foreach (Enemy enemy in _container.GetComponentsInChildren<Enemy>())
+        foreach (Enemy enemy in _enemies)
         {
             if (enemy.gameObject.activeSelf)
             {
@@ -49,11 +51,18 @@ public class EnemyPool : MonoBehaviour
 
     private Enemy InstantiateEnemy(int index)
     {
-        Enemy enemy = Instantiate(_enemies[index]);
+        Enemy enemy = Instantiate(_prefabEnemies[index]);
         enemy.transform.parent = _container;
         enemy.gameObject.SetActive(false);
+        _enemies.Add(enemy);
         enemy.Died += PutObject;
 
         return enemy;
+    }
+
+    private void DestroyEnemy(Enemy enemy)
+    {
+        enemy.Died -= PutObject;
+        Destroy(enemy.gameObject);
     }
 }

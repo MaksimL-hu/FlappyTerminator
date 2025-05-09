@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ScoreCounter : MonoBehaviour
 {
-    [SerializeField] private BulletPool _bulletPool;
+    [SerializeField] private BulletSpawner _bulletSpawner;
 
     private int _score;
 
@@ -11,12 +11,12 @@ public class ScoreCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _bulletPool.BulletHadHit += AddScore;
+        _bulletSpawner.BulletHadHit += AddScore;
     }
 
     private void OnDisable()
     {
-        _bulletPool.BulletHadHit -= AddScore;
+        _bulletSpawner.BulletHadHit -= AddScore;
     }
 
     public void AddScore()
