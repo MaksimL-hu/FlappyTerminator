@@ -7,7 +7,7 @@ public class Shooter : MonoBehaviour
 
     public void Shoot()
     {
-        Bullet bullet = _bulletSpawner.GetBullet();
+        Bullet bullet = _bulletSpawner.Spawn();
         bullet.gameObject.SetActive(true);
         bullet.transform.position = transform.position;
         bullet.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y,

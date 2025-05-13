@@ -1,12 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : GenericEnemySpawner<EnemyPool, Enemy>
 {
     [SerializeField] private float _delay;
     [SerializeField] private float _lowerBound;
     [SerializeField] private float _upperBound;
-    [SerializeField] private EnemyPool _pool;
 
     private void Start()
     {
@@ -24,19 +23,14 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
-    private void Spawn()
+    protected override Enemy Spawn()
     {
         float spawnPositionY = Random.Range(_upperBound, _lowerBound);
         Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, transform.localPosition.z);
 
-        Enemy enemy = _pool.GetObject();
-
-        enemy.gameObject.SetActive(true);
+        Enemy enemy = base.Spawn();
         enemy.transform.position = spawnPoint;
-    }
 
-    public void Reset()
-    {
-        _pool.Reset();
+        return enemy;
     }
 }

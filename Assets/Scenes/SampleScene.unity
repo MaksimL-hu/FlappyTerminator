@@ -391,16 +391,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1330354190535730432, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -1330354190535730432, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1330354190535730432, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3309968507167227745, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 3309968507167227745, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 3309968507167227745, guid: a6ae64a291df042458a1e2add59dc500, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -901,8 +909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5f7b63bf6cd16489eda4143790ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: 2326311811806720387, guid: fac4aae7665289d41835829ce395778f, type: 3}
-  _container: {fileID: 445432556}
+  Prefab: {fileID: 2326311811806720387, guid: fac4aae7665289d41835829ce395778f, type: 3}
+  Container: {fileID: 445432556}
 --- !u!4 &445432556
 Transform:
   m_ObjectHideFlags: 0
@@ -984,16 +992,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4045528852010838728, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4045528852010838728, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4045528852010838728, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
+      propertyPath: _reloadTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4453604102622840695, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 4453604102622840695, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 4453604102622840695, guid: b10e2fec0878b9d478768d2325764f00, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -1398,6 +1414,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 826230567}
+  - {fileID: 750479043}
+  - {fileID: 1668064423}
   - {fileID: 1866952243}
   - {fileID: 520120151}
   - {fileID: 600148663}
@@ -1432,9 +1450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bird: {fileID: 1110588151}
-  _enemyPool: {fileID: 826230569}
-  _playerBulletPool: {fileID: 445432555}
-  _enemyBulletPool: {fileID: 2032250955}
+  _enemySpawner: {fileID: 826230568}
+  _playerBulletSpawner: {fileID: 750479044}
+  _enemyBulletSpawner: {fileID: 1668064424}
   _startScreen: {fileID: 478744914}
   _endGameScreen: {fileID: 316070426}
 --- !u!1 &520120150
@@ -1486,8 +1504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be7084180e91f24a964e4fe42bdd34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerBulletPool: {fileID: 445432555}
-  _enemyBulletPool: {fileID: 2032250955}
 --- !u!61 &520120153
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1713,16 +1729,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8666083668291811398, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8666083668291811398, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
       propertyPath: _minReload
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8666083668291811398, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
+      propertyPath: _reloadTime
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5477203291726576818, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 5477203291726576818, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 5477203291726576818, guid: 4d062cd1824ba94428d223604521f11c, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -2210,16 +2234,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4938453224862950396, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4938453224862950396, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4938453224862950396, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4991925056636748055, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 4991925056636748055, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 4991925056636748055, guid: 56a5e85aef8c4a04ead72e11bebb16f0, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -2400,6 +2432,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &750479042
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 750479043}
+  - component: {fileID: 750479044}
+  m_Layer: 0
+  m_Name: PlayerBulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &750479043
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750479042}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &750479044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750479042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb787700d2b5fe54c8e494b67acb4b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolObjects: {fileID: 445432555}
 --- !u!1001 &781816751
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2418,10 +2495,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2706392734748651167, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -2706392734748651167, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
       propertyPath: _minReload
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2706392734748651167, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
+      propertyPath: _reloadTime
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 330072026096399867, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
@@ -2476,6 +2557,10 @@ PrefabInstance:
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 4323422017612127043, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 4323422017612127043, guid: c612ff6b6633e3e4881d5675668d8d5a, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -2653,10 +2738,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73e2339049ce5c49b709f4c4a491de1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Pool: {fileID: 826230569}
   _delay: 3
   _lowerBound: 4
   _upperBound: -4
-  _pool: {fileID: 826230569}
 --- !u!114 &826230569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2669,8 +2754,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6cdda2114b6a0149873838131d7a46f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _container: {fileID: 1701436378}
-  _enemies:
+  Container: {fileID: 1701436378}
+  PrefabEnemies:
   - {fileID: 1319377198}
   - {fileID: 578362564}
   - {fileID: 220363135}
@@ -2705,16 +2790,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3573258499675675727, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -3573258499675675727, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -3573258499675675727, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2574777821907066931, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 2574777821907066931, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 2574777821907066931, guid: 8bb6de5804897a34ebe7f561024de444, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -2919,6 +3012,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032250955}
     - target: {fileID: 2743407325919364821, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
+    - target: {fileID: 2743407325919364821, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
       propertyPath: _additionalRotation
       value: 90
       objectReference: {fileID: 0}
@@ -2980,11 +3077,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8581846871475414364, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8581846871475414364, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8581846871475414364, guid: a23feaf1d7a3acb449af59db52c27e97, type: 3}
+      propertyPath: _reloadTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3187,6 +3288,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032250955}
     - target: {fileID: 5938853937695711781, guid: df515bad065879540beb6bd970cdd158, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
+    - target: {fileID: 5938853937695711781, guid: df515bad065879540beb6bd970cdd158, type: 3}
       propertyPath: _additionalRotation
       value: 90
       objectReference: {fileID: 0}
@@ -3200,11 +3305,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7245362856247641608, guid: df515bad065879540beb6bd970cdd158, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7245362856247641608, guid: df515bad065879540beb6bd970cdd158, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7245362856247641608, guid: df515bad065879540beb6bd970cdd158, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3874,16 +3983,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2596614727821690453, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -2596614727821690453, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2596614727821690453, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2824500539528456709, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 2824500539528456709, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 2824500539528456709, guid: da8ae10a3ebc59a429029c4955013e6e, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -4005,6 +4122,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032250955}
     - target: {fileID: 1327619161934532153, guid: 05a02c25443fde64ea31ba08a2616588, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
+    - target: {fileID: 1327619161934532153, guid: 05a02c25443fde64ea31ba08a2616588, type: 3}
       propertyPath: _additionalRotation
       value: 90
       objectReference: {fileID: 0}
@@ -4018,10 +4139,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2838079174239770281, guid: 05a02c25443fde64ea31ba08a2616588, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2838079174239770281, guid: 05a02c25443fde64ea31ba08a2616588, type: 3}
       propertyPath: _minReload
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2838079174239770281, guid: 05a02c25443fde64ea31ba08a2616588, type: 3}
+      propertyPath: _reloadTime
       value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4130,6 +4255,51 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &1668064422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1668064423}
+  - component: {fileID: 1668064424}
+  m_Layer: 0
+  m_Name: EnemyBulletSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1668064423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668064422}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 519420032}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1668064424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668064422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb787700d2b5fe54c8e494b67acb4b81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PoolObjects: {fileID: 2032250955}
 --- !u!1 &1679311634
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,6 +4445,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032250955}
     - target: {fileID: 2379664442550481901, guid: 3338530678f6dc1469e15530c927e585, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
+    - target: {fileID: 2379664442550481901, guid: 3338530678f6dc1469e15530c927e585, type: 3}
       propertyPath: _additionalRotation
       value: 90
       objectReference: {fileID: 0}
@@ -4336,11 +4510,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8561388579605278619, guid: 3338530678f6dc1469e15530c927e585, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8561388579605278619, guid: 3338530678f6dc1469e15530c927e585, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561388579605278619, guid: 3338530678f6dc1469e15530c927e585, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4368,16 +4546,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -5686868726871444769, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -5686868726871444769, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5686868726871444769, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3592300691976428867, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 3592300691976428867, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 3592300691976428867, guid: 48fcee33ce9749245b78dfb0a369c85b, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -4639,10 +4825,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1514027243458922213, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -1514027243458922213, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
       propertyPath: _minReload
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1514027243458922213, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
+      propertyPath: _reloadTime
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4731537535774133697, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
@@ -4697,6 +4887,10 @@ PrefabInstance:
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 5139889406061399021, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 5139889406061399021, guid: 9f2f6c974cc8ec64f8c7558a512a6e5c, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -4755,7 +4949,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f80ec221e8a0cd449d6fb35ff11897d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyPool: {fileID: 826230569}
 --- !u!61 &1866952245
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4841,6 +5034,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2032250955}
     - target: {fileID: 1374157553580550488, guid: c1185450092fbfe4dafabb415f471213, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
+    - target: {fileID: 1374157553580550488, guid: c1185450092fbfe4dafabb415f471213, type: 3}
       propertyPath: _additionalRotation
       value: 90
       objectReference: {fileID: 0}
@@ -4902,11 +5099,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5978897119862954550, guid: c1185450092fbfe4dafabb415f471213, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5978897119862954550, guid: c1185450092fbfe4dafabb415f471213, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5978897119862954550, guid: c1185450092fbfe4dafabb415f471213, type: 3}
+      propertyPath: _reloadTime
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4928,6 +5129,10 @@ PrefabInstance:
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 825113647640518128, guid: 038c88a714c34504daf1ad8f4ba62516, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 825113647640518128, guid: 038c88a714c34504daf1ad8f4ba62516, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -4990,11 +5195,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7783815781136691276, guid: 038c88a714c34504daf1ad8f4ba62516, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7783815781136691276, guid: 038c88a714c34504daf1ad8f4ba62516, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783815781136691276, guid: 038c88a714c34504daf1ad8f4ba62516, type: 3}
+      propertyPath: _reloadTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5166,11 +5375,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7873545744054766675, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
       propertyPath: _maxReload
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -7873545744054766675, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
       propertyPath: _minReload
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7873545744054766675, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
+      propertyPath: _reloadTime
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4276338732681686188, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5224,6 +5437,10 @@ PrefabInstance:
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 2032250955}
+    - target: {fileID: 6399481959258677890, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 1668064424}
     - target: {fileID: 6399481959258677890, guid: f16f6a210440df44e87687a72d5825c9, type: 3}
       propertyPath: _additionalRotation
       value: 90
@@ -5280,8 +5497,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5f7b63bf6cd16489eda4143790ad3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bullet: {fileID: -2664329355882343767, guid: ebf14ec7d7f918f4ea2075191ab8bd19, type: 3}
-  _container: {fileID: 2032250954}
+  Prefab: {fileID: -2664329355882343767, guid: ebf14ec7d7f918f4ea2075191ab8bd19, type: 3}
+  Container: {fileID: 2032250954}
 --- !u!1 &2061519088
 GameObject:
   m_ObjectHideFlags: 0
@@ -5572,10 +5789,18 @@ PrefabInstance:
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 445432555}
+    - target: {fileID: 2700234893398663629, guid: 41594cad7acb58b4aafc362c9c1fc488, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 750479044}
     - target: {fileID: 5943143911343665248, guid: 41594cad7acb58b4aafc362c9c1fc488, type: 3}
       propertyPath: _bulletPool
       value: 
       objectReference: {fileID: 445432555}
+    - target: {fileID: 5943143911343665248, guid: 41594cad7acb58b4aafc362c9c1fc488, type: 3}
+      propertyPath: _bulletSpawner
+      value: 
+      objectReference: {fileID: 750479044}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

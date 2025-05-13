@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : SpawnObject
 {
     [SerializeField] private float _speed;
 
@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         transform.Translate(Vector2.up * _speed * Time.deltaTime);
     }
 
-    public void Hit()
+    protected void Hit()
     {
         HadHit?.Invoke(this);
     }
